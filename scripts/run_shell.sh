@@ -17,7 +17,7 @@ docker run -it --rm \
   --name farm-sim-container \
   "$IMAGE_NAME" \
   bash -c "
-    Xvfb :1 -screen 0 1920x1080x24 &
+    Xvfb :1 -screen 0 1280x796x24 &
     sleep 1
     x11vnc -display :1 -forever -nopw -rfbport 5900 -quiet &
     sleep 1
@@ -27,5 +27,5 @@ docker run -it --rm \
     export LIBGL_ALWAYS_SOFTWARE=1
     export LD_LIBRARY_PATH=/usr/local/lib:\$LD_LIBRARY_PATH
     echo '[브라우저] http://localhost:6080/vnc.html 로 접속하세요'
-    exec bash
+    /workspace/build/main
   "
